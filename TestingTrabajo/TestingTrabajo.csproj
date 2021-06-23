@@ -71,8 +71,10 @@
   <ItemGroup>
     <Compile Include="Models\Exceptions\CleanStringNotPassedException.cs" />
     <Compile Include="Models\Exceptions\UserNotFoundException.cs" />
+    <Compile Include="Models\Login.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserRepository.cs" />
+    <Compile Include="Persistence\HarcodedUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -100,7 +102,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Icons\" />
-    <Folder Include="Persistence\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="tools.png" />
