@@ -97,7 +97,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Icons\" />
     <Folder Include="Persistence\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="tools.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
