@@ -2,9 +2,9 @@
 
 namespace TestingTrabajo.Models
 {
-    interface UserRepository
+    interface EmployeeRepository
     {
         string GetName();
-        User login(string username, string password);
+        Employee Login(string email, string password);
     }
 }
