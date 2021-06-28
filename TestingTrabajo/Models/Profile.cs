@@ -10,9 +10,29 @@ namespace TestingTrabajo.Models
         public Profile(string uuid, string name)
         {
             this.uuid = uuid;
-            this.name = name;
+            this.name = CleanString(name);
         }
-        
+
+        private string CleanString(string data)
+        {
+            string cleanData = data.Trim();
+
+            if (String.IsNullOrEmpty(cleanData))
+            {
+                throw new CleanStringNotPassedException("Data is null or empty");
+            }
+
+            foreach (char letter in cleanData)
+            {
+                if (!Char.IsLetterOrDigit(letter))
+                {
+                    throw new CleanStringNotPassedException("Data contains not valid character");
+                }
+            }
+
+            return cleanData;
+        }
+
         public override string ToString()
         {
             return String.Format("Profile {UUID: %s, Name: %s}", uuid, name);

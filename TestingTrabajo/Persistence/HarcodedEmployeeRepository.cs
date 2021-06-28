@@ -14,7 +14,7 @@ namespace TestingTrabajo.Persistence
         {
             if (username.Equals("Master") && password.Equals("1324"))
             {
-                return new Employee("1111-1111-1111-1111",
+                return new Employee(Employee.GenerateUUID(),
                                     "11222333-4",
                                     "Gumersindo",
                                     "Casanueva",
