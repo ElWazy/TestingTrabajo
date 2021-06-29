@@ -1,6 +1,6 @@
 ﻿using System;
 using TestingTrabajo.Models;
-using MySqlConnector;
+using MySql.Data.MySqlClient;
 
 namespace TestingTrabajo.Persistence
 {
@@ -48,7 +48,7 @@ namespace TestingTrabajo.Persistence
 
             MySqlDataReader reader = command.ExecuteReader();
 
-            if ( !reader.HasRows )
+            if (!reader.HasRows)
             {
                 return null;
             }
