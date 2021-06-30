@@ -16,21 +16,16 @@ namespace TestingTrabajo.Persistence
 
         public List<Profile> GetAll()
         {
-            string sql = @"SELECT uuid, name FROM profile 
-                        ORDER BY name ASC";
+            string sql = @"SELECT uuid, name FROM profile";
+            
+            connection.Open();
 
             List<Profile> employees = null;
-            connection.Open();
 
             MySqlCommand command = new MySqlCommand(sql, connection);
             command.Prepare();
 
             MySqlDataReader reader = command.ExecuteReader();
-
-            if (!reader.HasRows)
-            {
-                return null;
-            }
 
             employees = new List<Profile>();
             while (reader.Read())
@@ -41,8 +36,26 @@ namespace TestingTrabajo.Persistence
                         )
                     );
             }
+            connection.Close();
 
             return employees;
+        }
+
+        public bool Save(Profile profile)
+        {
+            string sql = @"INSERT INTO profile VALUES (@uuid, @name)";
+
+            connection.Open();
+
+            MySqlCommand command = new MySqlCommand(sql, connection);
+            command.Parameters.AddWithValue("@uuid", profile.GetUuid());
+            command.Parameters.AddWithValue("@name", profile.GetName());
+            command.Prepare();
+
+            MySqlDataReader reader = command.ExecuteReader();
+            connection.Close();
+
+            return true;
         }
     }
 }

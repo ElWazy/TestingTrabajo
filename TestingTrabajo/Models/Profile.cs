@@ -13,6 +13,16 @@ namespace TestingTrabajo.Models
             this.name = CleanString(name);
         }
 
+        public string GetUuid()
+        {
+            return uuid;
+        }
+
+        public string GetName()
+        {
+            return name;
+        }
+
         private string CleanString(string data)
         {
             string cleanData = data.Trim();
@@ -31,6 +41,12 @@ namespace TestingTrabajo.Models
             }
 
             return cleanData;
+        }
+
+        public static string GenerateUUID()
+        {
+            Guid myuuid = Guid.NewGuid();
+            return myuuid.ToString();
         }
 
         public override string ToString()

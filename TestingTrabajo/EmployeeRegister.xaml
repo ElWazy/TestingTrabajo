@@ -24,6 +24,9 @@
         <Label Content="Profile" HorizontalAlignment="Left" Margin="215,69,0,0" VerticalAlignment="Top" Width="200"/>
         <ComboBox x:Name="cbxProfiles" HorizontalAlignment="Left" Margin="215,101,0,0" VerticalAlignment="Top" Width="200"/>
         <Button x:Name="btnRegister" Content="Register" HorizontalAlignment="Left" Margin="215,159,0,0" VerticalAlignment="Top" Width="200"/>
+        <Label Content="Profile" HorizontalAlignment="Left" Margin="662,10,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtProfile" HorizontalAlignment="Left" Height="23" Margin="662,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+        <Button x:Name="btnSaveProfile" Content="Insert" HorizontalAlignment="Left" Margin="662,69,0,0" VerticalAlignment="Top" Width="120" Click="Button_Click"/>
 
     </Grid>
 </Window>

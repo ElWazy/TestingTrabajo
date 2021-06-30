@@ -82,5 +82,13 @@ namespace TestingTrabajo
         {
             this.Close();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            UserRegister register = new UserRegister();
+            register.Show();
+
+            this.Close();
+        }
     }
 }
