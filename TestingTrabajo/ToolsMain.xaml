@@ -239,7 +239,7 @@
                         Foreground="Black" 
                         FontSize="14"
                         HorizontalAlignment="Left"
-                        FontWeight="Medium" Margin="12,7,0,0">
+                        FontWeight="Medium" Margin="12,7,0,0" Click="btnAddCat_Click">
 
                     <Button.Style>
                         <Style TargetType="Button">
