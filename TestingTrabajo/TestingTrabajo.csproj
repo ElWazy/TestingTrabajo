@@ -110,9 +110,14 @@
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Profile.cs" />
     <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\Tool.cs" />
+    <Compile Include="Models\ToolRepository.cs" />
     <Compile Include="Models\EmployeeRepository.cs" />
+    <Compile Include="Models\ProfileRepository.cs" />
     <Compile Include="Persistence\HarcodedEmployeeRepository.cs" />
     <Compile Include="Persistence\MariaDBEmployeeRepository.cs" />
+    <Compile Include="Persistence\MariaDBProfileRepository.cs" />
+    <Compile Include="Persistence\MariaDBToolRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
