@@ -72,7 +72,8 @@ namespace TestingTrabajo
                 {
                     tools.Show();
                     this.Close();
-                }
+
+                }  
                 else
                 {
                     MessageBox.Show("El correo ingresado es invalido");
