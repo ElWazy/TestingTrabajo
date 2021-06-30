@@ -163,6 +163,11 @@ namespace TestingTrabajo.Models
             return Encrypt.GetSHA256(passwd);
         }
 
+        public static string Greetings()
+        {
+            return "Hola Mundo!!";
+        }
+
         public override string ToString()
         {
             return String.Format("User {UUID: %s, Name: %s}");
