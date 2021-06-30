@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -52,6 +53,7 @@ namespace TestingTrabajo
                 txtPass.Opacity = 1;
 
             }
+            
         }
 
         private void logInCorrect(object sender, RoutedEventArgs e)
@@ -59,11 +61,34 @@ namespace TestingTrabajo
 
 
             ToolsMain tools = new ToolsMain();
-            tools.Show();
 
-            this.Close();
+            String email = txtMail.Text;
+            String expresion;
+            bool validate;
+            expresion = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+            if (Regex.IsMatch(email, expresion))
+            {
+                if (Regex.Replace(email, expresion, String.Empty).Length == 0)
+                {
+                    tools.Show();
+                    this.Close();
 
-            
+                }  
+                else
+                {
+                    MessageBox.Show("El correo ingresado es invalido");
+                    validate = false;
+                    Console.WriteLine(validate + " mail validator firstElse");
+                }
+            }
+            else
+            {
+                MessageBox.Show("El correo ingresado es invalido");
+                validate = false;
+                Console.WriteLine(validate + " mail validator secondElse");
+            }
+
+
 
 
         }
