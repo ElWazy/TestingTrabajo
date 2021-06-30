@@ -79,6 +79,9 @@
     <Compile Include="ToolsMain.xaml.cs">
       <DependentUpon>ToolsMain.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EmployeeRegister.xaml.cs">
+      <DependentUpon>EmployeeRegister.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -92,6 +95,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="ToolsMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EmployeeRegister.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
