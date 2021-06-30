@@ -39,7 +39,7 @@ namespace TestingTrabajo.Models
             this.date = ValidateDate(date);
             this.salary = ValidateSalary(salary);
             this.profile_id_fk = profile_id_fk;
-        }
+        }   
 
         private string ValidateUUID(string uuid)
         {
@@ -58,7 +58,7 @@ namespace TestingTrabajo.Models
 
         private string ValidateEmail(string email)
         {
-            if ( !email.Contains("@"))
+            if (!email.Contains("@"))
             {
                 throw new ArgumentException("Invalid Email");
             }
@@ -92,7 +92,7 @@ namespace TestingTrabajo.Models
          * ToDo: Se puede hacer iterable con una lista, para que procese varios datos de
          * una y no tener que estar llamando 1x1 los string del constructor
          */
-        private string CleanString(string data)
+        public string CleanString(string data)
         {
             string cleanData = data.Trim();
 
@@ -110,6 +110,46 @@ namespace TestingTrabajo.Models
             }
 
             return cleanData;
+        }
+
+        public string GetRut()
+        {
+            return rut;
+        }
+
+        public string GetFirstName()
+        {
+            return firstName;
+        }
+
+        public string GetLastName()
+        {
+            return lastName;
+        }
+
+        public string GetEmail()
+        {
+            return email;
+        }
+
+        public string GetPasswd()
+        {
+            return passwd;
+        }
+
+        public string GetBirthDate()
+        {
+            return date;
+        }
+
+        public int GetSalary()
+        {
+            return salary;
+        }
+
+        public string GetProfile()
+        {
+            return profile_id_fk;
         }
 
         public static string GenerateUUID()
