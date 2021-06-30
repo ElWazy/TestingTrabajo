@@ -23,12 +23,25 @@ namespace TestingTrabajo
         {
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             InitializeComponent();
+
+
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        
+
+    private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
 
         }
+
+        private void btnAddCat_Click(object sender, RoutedEventArgs e)
+        {
+            String newCategory = txtNombreCat.Text;
+            cboCat.Items.Add(newCategory);
+            txtNombreCat.Text = "";
+        }
+
+
     }
 }

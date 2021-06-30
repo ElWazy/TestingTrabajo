@@ -239,7 +239,7 @@
                         Foreground="Black" 
                         FontSize="14"
                         HorizontalAlignment="Left"
-                        FontWeight="Medium" Margin="12,7,0,0">
+                        FontWeight="Medium" Margin="12,7,0,0" Click="btnAddCat_Click">
 
                     <Button.Style>
                         <Style TargetType="Button">
@@ -321,7 +321,7 @@
 
                 </Button>
 
-                <ComboBox x:Name="cboCat" Margin="12,30,10,0" Width="377" Foreground="Black" Background="White" BorderBrush="White"/>
+                <ComboBox x:Name="cboCat" Margin="12,30,10,0" Width="377" Foreground="Black" Background="White" BorderBrush="White" SelectionChanged="cboCat_SelectionChanged"/>
                 <Border Height="5" Background="#464f9b" Width="377" HorizontalAlignment="Left" Margin="12,0,0,0"></Border>
 
             </StackPanel>
