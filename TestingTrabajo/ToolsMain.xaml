@@ -232,10 +232,10 @@
 
                 <TextBlock Text="NOMBRE: " Margin="12,15,0,0" FontWeight="Light"></TextBlock>
 
-                <TextBox BorderThickness="0" Width="377" HorizontalAlignment="Left" Margin="12,5,0,0" Height="22"></TextBox>
+                <TextBox x:Name="txtNombreCat" BorderThickness="0" Width="377" HorizontalAlignment="Left" Margin="12,5,0,0" Height="22"></TextBox>
                 <Border Height="5" Background="#464f9b" Width="377" HorizontalAlignment="Left" Margin="12,0,0,0"></Border>
 
-                <Button Content="Crear" 
+                <Button x:Name="btnAddCat" Content="Crear" 
                         Foreground="Black" 
                         FontSize="14"
                         HorizontalAlignment="Left"
@@ -280,7 +280,7 @@
                     </Button.Template>
 
                 </Button>
-                <Button Content="Actualizar" 
+                <Button x:Name="btnUpdateCat" Content="Actualizar" 
                         Foreground="Black" 
                         FontSize="14"
                         HorizontalAlignment="Left"
@@ -321,7 +321,7 @@
 
                 </Button>
 
-                <ComboBox Margin="12,30,10,0" Width="377" Foreground="Black" Background="White" BorderBrush="White"/>
+                <ComboBox x:Name="cboCat" Margin="12,30,10,0" Width="377" Foreground="Black" Background="White" BorderBrush="White"/>
                 <Border Height="5" Background="#464f9b" Width="377" HorizontalAlignment="Left" Margin="12,0,0,0"></Border>
 
             </StackPanel>
@@ -339,19 +339,19 @@
 
                 <TextBlock Text="NOMBRE: " Margin="12,15,0,0" FontWeight="Light"></TextBlock>
 
-                <TextBox BorderThickness="0" Width="377" HorizontalAlignment="Left" Margin="12,5,0,0" Height="22"></TextBox>
+                <TextBox x:Name="txtNameTool" BorderThickness="0" Width="377" HorizontalAlignment="Left" Margin="12,5,0,0" Height="22"></TextBox>
                 <Border Height="5" Background="#7d80f4" Width="377" HorizontalAlignment="Left" Margin="12,0,0,0"></Border>
 
                 <TextBlock Text="CATEGORÍA: " Margin="12,15,0,0" FontWeight="Light"></TextBlock>
-                <ComboBox Margin="12,5,10,0" Width="377" Foreground="Black" Background="White" BorderBrush="White"/>
+                <ComboBox x:Name="cboCatTool" Margin="12,5,10,0" Width="377" Foreground="Black" Background="White" BorderBrush="White"/>
                 <Border Height="5" Background="#7d80f4" Width="377" HorizontalAlignment="Left" Margin="12,0,0,0"></Border>
 
                 <TextBlock Text="STOCK: " Margin="12,15,0,0" FontWeight="Light"></TextBlock>
 
-                <TextBox BorderThickness="0" Width="180" HorizontalAlignment="Left" Margin="12,5,0,0" Height="22"></TextBox>
+                <TextBox x:Name="txtStock" BorderThickness="0" Width="180" HorizontalAlignment="Left" Margin="12,5,0,0" Height="22"></TextBox>
                 <Border Height="5" Background="#7d80f4" Width="180" HorizontalAlignment="Left" Margin="12,0,0,0"></Border>
 
-                <Button Content="Crear" 
+                <Button x:Name="btnAddTool" Content="Crear" 
                         Foreground="Black" 
                         FontSize="14"
                         HorizontalAlignment="Left"
@@ -396,7 +396,7 @@
                     </Button.Template>
 
                 </Button>
-                <Button Content="Actualizar" 
+                <Button x:Name="btnUpdateTool" Content="Actualizar" 
                         Foreground="Black" 
                         FontSize="14"
                         HorizontalAlignment="Left"
