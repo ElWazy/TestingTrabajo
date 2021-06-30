@@ -22,7 +22,6 @@
                         <GradientStop Color="#48b1bf" Offset="1"></GradientStop>
                     </LinearGradientBrush>
                 </Border.Background>
-                <Button Content="Button" Margin="0,641,438,0" Click="Button_Click_1"/>
             </Border>
 
             <StackPanel Margin="0,20,0,0">
@@ -101,15 +100,25 @@
                     <Image Opacity="0.8" Margin="100,0,0,0" 
                        Source="Images/padlock.png" Width="40"
                        RenderOptions.BitmapScalingMode="Fant"></Image>
+
                     <TextBox  x:Name="txtPass" FontFamily="Helvetica" FontWeight="Light"
                          Text="Contraseña" FontSize="30"
                          HorizontalAlignment="Center"
                          Foreground="White" Background="Transparent"
-                         Width="535" Height="50"
+                         Width="550" Height="56"
                          HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                          BorderThickness="0"
-                         Opacity="0.5" Margin="-110,0,0,0" GotFocus="txtPass_GotFocus"
+                         Opacity="0.5" Margin="-110,0,0,0" GotFocus="txtPass_GotFocus"  
                 />
+
+                    <PasswordBox x:Name="pswbox" Margin="10,0,0,0" Width="360" Background="Transparent" 
+                                 PasswordChar="*" Foreground="White"
+                                 BorderThickness="0" FontSize="30"
+                                 />
+
+
+
+
 
                 </StackPanel>
                 <Border Margin="0,4,0,0" Width="420" Height="6" Background="White" Opacity="0.8"/>

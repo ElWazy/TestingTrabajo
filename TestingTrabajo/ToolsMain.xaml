@@ -173,7 +173,7 @@
                         Foreground="White" 
                         FontSize="15"
                         Margin="-20,25,0,0"
-                        FontWeight="Normal"  >
+                        FontWeight="Normal" Click="Button_Click_1"  >
 
                     <Button.Style>
                         <Style TargetType="Button">

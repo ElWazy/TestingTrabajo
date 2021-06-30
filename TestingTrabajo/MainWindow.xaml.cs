@@ -44,18 +44,6 @@ namespace TestingTrabajo
 
 
 
-        private void txtPass_GotFocus(object sender, RoutedEventArgs e)
-        {
-            if (txtPass.Text == "Contraseña")
-            {
-                txtPass.Text = "";
-                txtPass.Foreground = Brushes.White;
-                txtPass.Opacity = 1;
-
-            }
-            
-        }
-
         private void logInCorrect(object sender, RoutedEventArgs e)
         {
 
@@ -108,12 +96,19 @@ namespace TestingTrabajo
             this.Close();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            UserRegister register = new UserRegister();
-            register.Show();
+ 
 
-            this.Close();
+
+        private void txtPass_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtPass.Text.Length != 0)
+            {
+                txtPass.IsEnabled = false;
+                txtPass.Opacity = 1;
+                txtPass.Visibility = Visibility.Collapsed;
+                pswbox.Focus();
+
+            }
         }
     }
 }
