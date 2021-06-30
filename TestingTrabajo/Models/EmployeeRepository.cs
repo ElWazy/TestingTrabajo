@@ -6,6 +6,6 @@ namespace TestingTrabajo.Models
     {
         string GetName();
         Employee Login(string email, string password);
-        bool Register(Employee employee);
+        void Register(Employee employee);
     }
 }

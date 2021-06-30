@@ -28,7 +28,7 @@ namespace TestingTrabajo.Persistence
             return null;
         }
 
-        public bool Register(Employee employee)
+        public void Register(Employee employee)
         {
             throw new NotImplementedException();
         }

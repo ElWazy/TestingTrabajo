@@ -64,7 +64,7 @@ namespace TestingTrabajo.Persistence
                             reader.GetString(8));
         }
 
-        public bool Register(Employee employee)
+        public void Register(Employee employee)
         {
             string sql = @"INSERT INTO employee VALUES 
                         (@uuid, 
@@ -82,18 +82,16 @@ namespace TestingTrabajo.Persistence
             MySqlCommand command = new MySqlCommand(sql, connection);
             command.Parameters.AddWithValue("@uuid", Employee.GenerateUUID());
             command.Parameters.AddWithValue("@rut", employee.GetRut());
-            command.Parameters.AddWithValue("@firs_name", employee.GetFirstName());
+            command.Parameters.AddWithValue("@first_name", employee.GetFirstName());
             command.Parameters.AddWithValue("@last_name", employee.GetLastName());
             command.Parameters.AddWithValue("@email", employee.GetEmail());
             command.Parameters.AddWithValue("@passwd", employee.GetPasswd());
-            command.Parameters.AddWithValue("@bith_date", employee.GetBirthDate());
+            command.Parameters.AddWithValue("@birth_date", employee.GetBirthDate());
             command.Parameters.AddWithValue("@salary", employee.GetSalary());
-            command.Parameters.AddWithValue("@profily", employee.GetProfile());
+            command.Parameters.AddWithValue("@profile_id_fk", employee.GetProfile());
             command.Prepare();
 
-            MySqlDataReader reader = command.ExecuteReader();
-
-            return true;
+            command.ExecuteNonQuery();
         }
     }
 }
