@@ -1,6 +1,6 @@
 ﻿using System;
 using TestingTrabajo.Models;
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 
 namespace TestingTrabajo.Persistence
 {
