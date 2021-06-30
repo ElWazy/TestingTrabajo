@@ -51,7 +51,7 @@ namespace TestingTrabajo.Models
 
         public override string ToString()
         {
-            return String.Format("Profile {UUID: %s, Name: %s}", uuid, name);
+            return "Profile {UUID: " + uuid + ", Name: " + name + "}";
         }
     }
 }

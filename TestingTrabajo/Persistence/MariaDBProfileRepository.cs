@@ -20,25 +20,24 @@ namespace TestingTrabajo.Persistence
             
             connection.Open();
 
-            List<Profile> employees = null;
+            List<Profile> profiles = new List<Profile>();
 
             MySqlCommand command = new MySqlCommand(sql, connection);
             command.Prepare();
 
             MySqlDataReader reader = command.ExecuteReader();
 
-            employees = new List<Profile>();
             while (reader.Read())
             {
-                employees.Add(
-                    new Profile(
-                        reader.GetString(1), reader.GetString(2)
-                        )
+                Profile profile = new Profile(
+                    reader.GetString(0),
+                    reader.GetString(1)
                     );
+                profiles.Add(profile);
             }
             connection.Close();
 
-            return employees;
+            return profiles;
         }
 
         public bool Save(Profile profile)
@@ -52,7 +51,7 @@ namespace TestingTrabajo.Persistence
             command.Parameters.AddWithValue("@name", profile.GetName());
             command.Prepare();
 
-            MySqlDataReader reader = command.ExecuteReader();
+            command.ExecuteNonQuery();
             connection.Close();
 
             return true;
