@@ -33,7 +33,7 @@ namespace TestingTrabajo.Persistence
                             employee.passwd,
                             employee.birth_date,
                             employee.salary,
-                            employee.profile_id_fk
+                            prorifile.name
                         FROM employee
                         INNER JOIN profile ON employee.profile_id_fk = profile.uuid
                         WHERE rut = @rut AND passwd = @passwd AND profile = 'panolero'
@@ -62,6 +62,38 @@ namespace TestingTrabajo.Persistence
                             reader.GetString(6),
                             reader.GetInt32(7),
                             reader.GetString(8));
+        }
+
+        public bool Register(Employee employee)
+        {
+            string sql = @"INSERT INTO employee VALUES 
+                        (@uuid, 
+                        @rut,
+                        @first_name,
+                        @last_name,
+                        @email,
+                        @passwd,
+                        @birth_date,
+                        @salary,
+                        @profile_id_fk)";
+
+            connection.Open();
+
+            MySqlCommand command = new MySqlCommand(sql, connection);
+            command.Parameters.AddWithValue("@uuid", Employee.GenerateUUID());
+            command.Parameters.AddWithValue("@rut", employee.GetRut());
+            command.Parameters.AddWithValue("@firs_name", employee.GetFirstName());
+            command.Parameters.AddWithValue("@last_name", employee.GetLastName());
+            command.Parameters.AddWithValue("@email", employee.GetEmail());
+            command.Parameters.AddWithValue("@passwd", employee.GetPasswd());
+            command.Parameters.AddWithValue("@bith_date", employee.GetBirthDate());
+            command.Parameters.AddWithValue("@salary", employee.GetSalary());
+            command.Parameters.AddWithValue("@profily", employee.GetProfile());
+            command.Prepare();
+
+            MySqlDataReader reader = command.ExecuteReader();
+
+            return true;
         }
     }
 }
