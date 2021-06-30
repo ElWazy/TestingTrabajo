@@ -76,6 +76,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\Tool.cs" />
+    <Compile Include="Models\ToolRepository.cs" />
+    <Compile Include="Persistence\MariaDBToolRepository.cs" />
     <Compile Include="ToolsMain.xaml.cs">
       <DependentUpon>ToolsMain.xaml</DependentUpon>
     </Compile>
