@@ -40,6 +40,32 @@ namespace TestingTrabajo.Persistence
             return profiles;
         }
 
+        public Profile GetByName(string name)
+        {
+            string sql = @"SELECT uuid, name FROM profile WHERE name = @name";
+
+            connection.Open();
+
+            Profile profile = null;
+
+            MySqlCommand command = new MySqlCommand(sql, connection);
+            command.Parameters.AddWithValue("@name", name);
+            command.Prepare();
+
+            MySqlDataReader reader = command.ExecuteReader();
+
+            if (reader.Read())
+            {
+                profile = new Profile(
+                    reader.GetString(0),
+                    reader.GetString(1)
+                    );
+            }
+            connection.Close();
+
+            return profile;
+        }
+
         public bool Save(Profile profile)
         {
             string sql = @"INSERT INTO profile VALUES (@uuid, @name)";
