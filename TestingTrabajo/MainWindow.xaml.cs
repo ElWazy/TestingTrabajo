@@ -52,6 +52,7 @@ namespace TestingTrabajo
                 txtPass.Opacity = 1;
 
             }
+            
         }
 
         private void logInCorrect(object sender, RoutedEventArgs e)
@@ -59,11 +60,11 @@ namespace TestingTrabajo
 
 
             ToolsMain tools = new ToolsMain();
-            tools.Show();
-
-            this.Close();
 
             
+            tools.Show();
+            this.Close();
+
 
 
         }
