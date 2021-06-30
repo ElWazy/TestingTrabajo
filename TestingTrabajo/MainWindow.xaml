@@ -22,6 +22,7 @@
                         <GradientStop Color="#48b1bf" Offset="1"></GradientStop>
                     </LinearGradientBrush>
                 </Border.Background>
+                <Button Content="Button" Margin="0,641,438,0" Click="Button_Click_1"/>
             </Border>
 
             <StackPanel Margin="0,20,0,0">
