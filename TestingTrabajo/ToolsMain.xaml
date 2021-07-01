@@ -488,18 +488,9 @@
                 </Button>
                 
                 
-                <DataGrid x:Name="gridTools"  Height="543" BorderBrush="#FFAF6868" Margin="0,10,10,0" Foreground="White" >
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="  ID" ></DataGridTextColumn>
-                    <DataGridTextColumn Header="      NOMBRE" Width="90"></DataGridTextColumn>
-                    <DataGridTextColumn Header="CATEGORÍA" Width="90" ></DataGridTextColumn>
-                    <DataGridTextColumn Header="STOCK" ></DataGridTextColumn>
-                    <DataGridTextColumn Header="       STOCK TOTAL" ></DataGridTextColumn>
-                    <DataGridTextColumn Header="" ></DataGridTextColumn>
+                <DataGrid x:Name="gridTools"  Height="543" BorderBrush="#FFAF6868" Margin="0,10,10,0" Foreground="Black" >
 
-                </DataGrid.Columns>
-
-                <DataGrid.Resources>
+                    <DataGrid.Resources>
                     <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
                         <Setter Property="Background" Value="#7d80f4" />
                         <Setter Property="Height" Value="30"></Setter>

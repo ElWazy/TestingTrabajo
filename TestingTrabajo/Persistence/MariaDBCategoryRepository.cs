@@ -71,6 +71,32 @@ namespace TestingTrabajo.Persistence
             return category;
         }
 
+        public Category GetByUUID(string uuid)
+        {
+            string sql = @"SELECT uuid, name FROM category WHERE uuid = @uuid";
+
+            connection.Open();
+
+            Category category = null;
+
+            MySqlCommand command = new MySqlCommand(sql, connection);
+            command.Parameters.AddWithValue("@uuid", uuid);
+            command.Prepare();
+
+            MySqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                category = new Category(
+                    reader.GetString(0),
+                    reader.GetString(1)
+                    );
+            }
+            connection.Close();
+
+            return category;
+        }
+
         public void Save(Category category)
         {
             string sql = @"INSERT INTO category VALUES (@uuid, @name)";

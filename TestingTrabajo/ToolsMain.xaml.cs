@@ -31,9 +31,24 @@ namespace TestingTrabajo
         private void LoadToolTable()
         {
             List<Tool> tools = toolRepo.GetAll();
+            List<FormatedTool> formatedTools = new List<FormatedTool>();
 
-            // Aquí se deberia llenar la tabla con los datos traidos de la db
+            foreach (Tool tool in tools)
+            {
+                Category category = categoryRepo.GetByUUID(tool.Category_id_fk);
 
+                formatedTools.Add(
+                        new FormatedTool(
+                                tools.IndexOf(tool),
+                                tool.Name,
+                                category.Name,
+                                tool.Stock,
+                                tool.Real_stock
+                            )
+                    );
+            }
+
+            gridTools.ItemsSource = formatedTools;
         }
 
         private void LoadCategoryCombo()
@@ -118,13 +133,62 @@ namespace TestingTrabajo
 
                 toolRepo.Add(tool);
             }
-            catch (FormatException ex)
+            catch (FormatException)
             {
                 MessageBox.Show("El stock debe ser numerico");
             }
 
             CleanTextBoxs();
             LoadToolTable();
+        }
+
+    }
+
+    internal class FormatedTool
+    {
+        private int id;
+        private string name;
+        private string category;
+        private int stock;
+        private int realStock;
+
+        public FormatedTool(int id, string name, string category, int stock, int realStock)
+        {
+            this.id = id;
+            this.name = name;
+            this.category = category;
+            this.stock = stock;
+            this.realStock = realStock;
+        }
+
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+
+        public string Category
+        {
+            get { return category; }
+            set { category = value; }
+        }
+
+        public int Stock
+        {
+            get { return stock; }
+            set { stock = value; }
+        }
+
+        public int RealStock
+        {
+            get { return realStock; }
+            set { realStock = value; }
         }
 
     }

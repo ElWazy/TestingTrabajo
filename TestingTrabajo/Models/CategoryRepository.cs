@@ -9,6 +9,7 @@ namespace TestingTrabajo.Models
 
         List<Category> GetAll();
         Category GetByName(string name);
+        Category GetByUUID(string uuid);
         void Save(Category category);
         void Update(Category category);
     }
