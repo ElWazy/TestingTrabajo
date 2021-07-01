@@ -22,6 +22,7 @@ namespace TestingTrabajo
     public partial class ToolsMain : Window
     {
         CategoryRepository categoryRepo;
+        ToolRepository toolRepo;
 
         public ToolsMain()
         {
@@ -31,8 +32,17 @@ namespace TestingTrabajo
             string url = "datasource=localhost;port=3306;username=root;password=;database=testing_work";
 
             categoryRepo = new MariaDBCategoryRepository(url);
+            toolRepo = new MariaDBToolRepository(url);
 
             LoadCategoryCombo();
+            LoadToolTable();
+        }
+
+        private void LoadToolTable()
+        {
+            List<Tool> tools = toolRepo.GetAll();
+
+            // Aquí se deberia llenar la tabla con los datos traidos de la db
         }
 
         private void LoadCategoryCombo()
@@ -82,6 +92,23 @@ namespace TestingTrabajo
             LoadCategoryCombo();
         }
 
+        private void btnAddTool_Click(object sender, RoutedEventArgs e)
+        {
 
+            Category category = categoryRepo.GetByName(cboCatTool.SelectedItem.ToString());
+
+            Tool tool = new Tool(
+                    Tool.GenerateUUID(),
+                    txtNameTool.Text,
+                    category.UUID,
+                    int.Parse(txtStock.Text),
+                    int.Parse(txtStock.Text)
+                );
+
+            toolRepo.Add(tool);
+
+            CleanTextBoxs();
+            LoadToolTable();
+        }
     }
 }
