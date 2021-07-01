@@ -145,7 +145,39 @@ namespace TestingTrabajo
             LoadToolTable();
         }
 
+   
+
+        private void b1SetColor(object DatagridCell, RoutedEventArgs e)
+        {
+            MessageBox.Show("a");
+
+        }
+
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     internal class FormatedTool
     {
@@ -163,6 +195,8 @@ namespace TestingTrabajo
             this.stock = stock;
             this.realStock = realStock;
         }
+
+
 
         public int Id
         {

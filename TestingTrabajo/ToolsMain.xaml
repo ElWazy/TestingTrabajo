@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TestingTrabajo"
         mc:Ignorable="d"
         Title="ToolsMain" Height="637.014" Width="1116.176" WindowStyle="none">
-    <Grid>
+    <Grid Margin="0,0,-8,0">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="0"></RowDefinition>
@@ -441,7 +441,7 @@
 
         </StackPanel>
 
-        <StackPanel Grid.Row="1" Grid.RowSpan="2" Grid.Column="2">
+        <StackPanel Grid.Row="1" Grid.RowSpan="2" Grid.Column="2" Margin="0,0,10,10">
 
             <StackPanel Margin="0,30,0,0">
 
@@ -484,19 +484,26 @@
                             </Border>
                         </ControlTemplate>
                     </Button.Template>
-
                 </Button>
-                
-                
-                <DataGrid x:Name="gridTools"  Height="543" BorderBrush="#FFAF6868" Margin="0,10,10,0" Foreground="Black" >
 
+
+                <DataGrid  Background="Transparent" BorderThickness="0" x:Name="gridTools" Margin="0,10,20,0" Foreground="#FF0C0000"  ColumnWidth="*" >
+
+
+                    <DataGrid.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <EventSetter Event="PreviewMouseDown" Handler="b1SetColor"/>
+                        </Style>
+                    </DataGrid.CellStyle>
+                    
                     <DataGrid.Resources>
-                    <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
-                        <Setter Property="Background" Value="#7d80f4" />
-                        <Setter Property="Height" Value="30"></Setter>
-                    </Style>
-                </DataGrid.Resources>
-            </DataGrid>
+                        <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="Height" Value="30" ></Setter>
+                            <Setter Property="Background" Value="#7d80f4" />
+                            <Setter Property="Foreground" Value="White" />
+                        </Style>
+                    </DataGrid.Resources>
+                </DataGrid>
 
             </StackPanel>
         </StackPanel>
