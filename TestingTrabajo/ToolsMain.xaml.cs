@@ -169,6 +169,14 @@ namespace TestingTrabajo
             else
                 e.Handled = true;
         }
+
+
+        private void cboCat_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            txtNombreCat.Text = cboCat.SelectedItem + "";
+
+        }
+
     }
 
 
@@ -223,22 +231,10 @@ namespace TestingTrabajo
 
         }
 
-        private void cboCat_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
-        {
-            txtNombreCat.Text = cboCat.SelectedItem+"";
-
-        }
-
-        private void b1SetColor(object DatagridCell, RoutedEventArgs e)
-        {
-
-            string a = DatagridCell.ToString();
-            MessageBox.Show(a);
-
-        }
 
 
 
+    
       
-    }
+    
 }
