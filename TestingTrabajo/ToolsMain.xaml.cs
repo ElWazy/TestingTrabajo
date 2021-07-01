@@ -96,16 +96,22 @@ namespace TestingTrabajo
         {
 
             Category category = categoryRepo.GetByName(cboCatTool.SelectedItem.ToString());
+            try
+            {
+                Tool tool = new Tool(
+                        Tool.GenerateUUID(),
+                        txtNameTool.Text,
+                        category.UUID,
+                        int.Parse(txtStock.Text),
+                        int.Parse(txtStock.Text)
+                    );
 
-            Tool tool = new Tool(
-                    Tool.GenerateUUID(),
-                    txtNameTool.Text,
-                    category.UUID,
-                    int.Parse(txtStock.Text),
-                    int.Parse(txtStock.Text)
-                );
-
-            toolRepo.Add(tool);
+                toolRepo.Add(tool);
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show("El stock debe ser numerico");
+            }
 
             CleanTextBoxs();
             LoadToolTable();
