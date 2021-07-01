@@ -1,16 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using TestingTrabajo.Models;
 using TestingTrabajo.Persistence;
 
@@ -43,6 +33,7 @@ namespace TestingTrabajo
             List<Tool> tools = toolRepo.GetAll();
 
             // Aquí se deberia llenar la tabla con los datos traidos de la db
+
         }
 
         private void LoadCategoryCombo()
@@ -90,6 +81,25 @@ namespace TestingTrabajo
 
             CleanTextBoxs();
             LoadCategoryCombo();
+            LoadToolTable();
+        }
+
+        private void btnUpdateCat_Click(object sender, RoutedEventArgs e)
+        {
+            Category oldCategory = categoryRepo.GetByName(
+                    cboCat.SelectedItem.ToString()
+                );
+
+            Category category = new Category(
+                    oldCategory.UUID,
+                    txtNombreCat.Text
+                );
+
+            categoryRepo.Update(category);
+
+            CleanTextBoxs();
+            LoadCategoryCombo();
+            LoadToolTable();
         }
 
         private void btnAddTool_Click(object sender, RoutedEventArgs e)
@@ -116,5 +126,6 @@ namespace TestingTrabajo
             CleanTextBoxs();
             LoadToolTable();
         }
+
     }
 }

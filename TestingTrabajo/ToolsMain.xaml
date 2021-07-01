@@ -284,7 +284,7 @@
                         Foreground="Black" 
                         FontSize="14"
                         HorizontalAlignment="Left"
-                        FontWeight="Medium" Margin="120,-25,0,0" >
+                        FontWeight="Medium" Margin="120,-25,0,0" Click="btnUpdateCat_Click" >
 
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
@@ -321,7 +321,7 @@
 
                 </Button>
 
-                <ComboBox x:Name="cboCat" Margin="12,30,10,0" Width="377" Foreground="Black" Background="White" BorderBrush="White"/>
+                <ComboBox x:Name="cboCat" Margin="12,30,10,0" Width="377" Foreground="Black" Background="White" BorderBrush="White" />
                 <Border Height="5" Background="#464f9b" Width="377" HorizontalAlignment="Left" Margin="12,0,0,0"></Border>
 
             </StackPanel>
