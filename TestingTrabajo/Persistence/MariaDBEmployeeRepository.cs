@@ -33,10 +33,10 @@ namespace TestingTrabajo.Persistence
                             employee.passwd,
                             employee.birth_date,
                             employee.salary,
-                            prorifile.name
+                            employee.profile_id_fk
                         FROM employee
                         INNER JOIN profile ON employee.profile_id_fk = profile.uuid
-                        WHERE rut = @rut AND p*asswd = @passwd AND profile = 'panolero'
+                        WHERE employee.rut = @rut AND employee.passwd = @passwd AND profile.name = 'panolero'
                         LIMIT 1";
 
             connection.Open();

@@ -88,8 +88,14 @@ namespace TestingTrabajo.Models
             return myuuid.ToString();
         }
 
-
-
-
+        public override string ToString()
+        {
+            return "Tool {uuid: " + uuid 
+                + ", name: " + name 
+                + ", category_id_fk: " + category_id_fk 
+                + ", stock: " + stock 
+                + ", real_stock: " + real_stock 
+                + "}";
+        }
     }
 }

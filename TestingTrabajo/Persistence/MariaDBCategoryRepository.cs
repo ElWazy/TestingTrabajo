@@ -1,47 +1,40 @@
-﻿using System;
-using TestingTrabajo.Models;
-using MySqlConnector;
+﻿using MySqlConnector;
+using System;
 using System.Collections.Generic;
+using TestingTrabajo.Models;
 
 namespace TestingTrabajo.Persistence
 {
-    class MariaDBToolRepository : ToolRepository
+    class MariaDBCategoryRepository : CategoryRepository
     {
-
         private MySqlConnection connection = null;
 
-        public MariaDBToolRepository(string url)
+        public MariaDBCategoryRepository(string url)
         {
             connection = new MySqlConnection(url);
         }
 
-        public string getName()
-        {
-            return "MariaDB";
-        }
-
-        public List<Tool> GetAll()
+        public List<Category> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public Tool GetByUUID(string uuid)
+        public Category GetByName(string name)
         {
             throw new NotImplementedException();
         }
 
-        public Tool GetByName(string name)
+        public string GetName()
         {
             throw new NotImplementedException();
         }
 
-
-        public void Add(Tool tool)
+        public void Save(Category category)
         {
             throw new NotImplementedException();
         }
 
-        public void Update(Tool tool)
+        public void Update(Category category)
         {
             throw new NotImplementedException();
         }
