@@ -348,7 +348,7 @@
 
                 <TextBlock Text="STOCK: " Margin="12,15,0,0" FontWeight="Light"></TextBlock>
 
-                <TextBox x:Name="txtStock" BorderThickness="0" Width="180" HorizontalAlignment="Left" Margin="12,5,0,0" Height="22"></TextBox>
+                <TextBox x:Name="txtStock" BorderThickness="0" Width="180" HorizontalAlignment="Left" Margin="12,5,0,0" Height="22" KeyDown="txtStock_KeyDown"></TextBox>
                 <Border Height="5" Background="#7d80f4" Width="180" HorizontalAlignment="Left" Margin="12,0,0,0"></Border>
 
                 <Button x:Name="btnAddTool" Content="Crear" 

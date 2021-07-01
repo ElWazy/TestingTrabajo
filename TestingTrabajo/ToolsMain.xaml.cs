@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Input;
 using TestingTrabajo.Models;
 using TestingTrabajo.Persistence;
 
@@ -153,6 +154,17 @@ namespace TestingTrabajo
 
         }
 
+        private void txtStock_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
+            {
+                e.Handled = false;
+                MessageBox.Show("Solo valores numericos");
+            }
+                
+            else
+                e.Handled = true;
+        }
     }
 
 
