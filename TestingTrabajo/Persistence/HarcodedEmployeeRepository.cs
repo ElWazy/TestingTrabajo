@@ -12,7 +12,7 @@ namespace TestingTrabajo.Persistence
 
         public Employee Login(string username, string password)
         {
-            if (username.Equals("Master") && password.Equals("1324"))
+            if (username.Equals("Master@gmail.com") && password.Equals("1324"))
             {
                 return new Employee(Employee.GenerateUUID(),
                                     "11222333-4",
