@@ -50,32 +50,48 @@ namespace TestingTrabajo
 
             ToolsMain tools = new ToolsMain();
 
+            String pass = pswbox.Password;
             String email = txtMail.Text;
             String expresion;
-            bool validate;
+            bool validateMail;
+            bool validatePass = false;
             expresion = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
             if (Regex.IsMatch(email, expresion))
             {
                 if (Regex.Replace(email, expresion, String.Empty).Length == 0)
                 {
-                    tools.Show();
-                    this.Close();
-
+                    validateMail = true;
                 }  
                 else
                 {
-                    MessageBox.Show("El correo ingresado es invalido");
-                    validate = false;
-                    Console.WriteLine(validate + " mail validator firstElse");
+                    validateMail = false;
+                    Console.WriteLine(validateMail + " mail validator firstElse");
                 }
             }
             else
             {
-                MessageBox.Show("El correo ingresado es invalido");
-                validate = false;
-                Console.WriteLine(validate + " mail validator secondElse");
+                validateMail = false;
+                Console.WriteLine(validateMail + " mail validator secondElse");
             }
 
+            if (pass.Length != 0)
+            {
+                validatePass = true;
+            }
+            else
+            {
+
+            }
+
+            if (validateMail == true && validatePass == true)
+            {
+                tools.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Correo o contraseña erroneos");
+            }
 
 
 
