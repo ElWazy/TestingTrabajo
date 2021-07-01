@@ -52,6 +52,12 @@ namespace TestingTrabajo.Models
 
             return cleanData;
         }
+        
+        public static string GenerateUUID()
+        {
+            Guid myuuid = Guid.NewGuid();
+            return myuuid.ToString();
+        }
 
         public override string ToString()
         {

@@ -21,7 +21,7 @@ namespace TestingTrabajo.Persistence
         
         public List<Category> GetAll()
         {
-            string sql = @"SELECT uuid, name FROM category";
+            string sql = @"SELECT uuid, name FROM category ORDER BY name ASC";
 
             connection.Open();
 
@@ -73,7 +73,7 @@ namespace TestingTrabajo.Persistence
 
         public void Save(Category category)
         {
-            string sql = @"INSERT INTO profile VALUES (@uuid, @name)";
+            string sql = @"INSERT INTO category VALUES (@uuid, @name)";
 
             connection.Open();
 

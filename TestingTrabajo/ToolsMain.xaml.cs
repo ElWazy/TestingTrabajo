@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TestingTrabajo.Models;
+using TestingTrabajo.Persistence;
 
 namespace TestingTrabajo
 {
@@ -19,17 +21,41 @@ namespace TestingTrabajo
     /// </summary>
     public partial class ToolsMain : Window
     {
+        CategoryRepository categoryRepo;
+
         public ToolsMain()
         {
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             InitializeComponent();
 
+            string url = "datasource=localhost;port=3306;username=root;password=;database=testing_work";
 
+            categoryRepo = new MariaDBCategoryRepository(url);
+
+            LoadCategoryCombo();
         }
 
-        
+        private void LoadCategoryCombo()
+        {
+            List<Category> categories = categoryRepo.GetAll();
 
-    private void Button_Click(object sender, RoutedEventArgs e)
+            cboCat.Items.Clear();
+            cboCatTool.Items.Clear();
+            foreach (Category category in categories)
+            {
+                cboCat.Items.Add(category.Name);
+                cboCatTool.Items.Add(category.Name);
+            }
+        }
+
+        private void CleanTextBoxs()
+        {
+            txtNameTool.Text  = "";
+            txtNombreCat.Text = "";
+            txtStock.Text     = "";
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
 
@@ -42,11 +68,18 @@ namespace TestingTrabajo
 
             //this.Close();
         }
+
         private void btnAddCat_Click(object sender, RoutedEventArgs e)
         {
-            String newCategory = txtNombreCat.Text;
-            cboCat.Items.Add(newCategory);
-            txtNombreCat.Text = "";
+            Category category = new Category(
+                    Category.GenerateUUID(),
+                    txtNombreCat.Text
+                );
+
+            categoryRepo.Save(category);
+
+            CleanTextBoxs();
+            LoadCategoryCombo();
         }
 
 
