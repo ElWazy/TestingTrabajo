@@ -66,9 +66,9 @@ namespace TestingTrabajo
 
         private void CleanTextBoxs()
         {
-            txtNameTool.Text  = "";
+            txtNameTool.Text = "";
             txtNombreCat.Text = "";
-            txtStock.Text     = "";
+            txtStock.Text = "";
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -79,7 +79,7 @@ namespace TestingTrabajo
 
         /**
          * Comentar a la hora de la exposicion
-         */ 
+         */
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             UserRegister register = new UserRegister();
@@ -104,6 +104,8 @@ namespace TestingTrabajo
 
         private void btnUpdateCat_Click(object sender, RoutedEventArgs e)
         {
+
+
             Category oldCategory = categoryRepo.GetByName(
                     cboCat.SelectedItem.ToString()
                 );
@@ -113,7 +115,10 @@ namespace TestingTrabajo
                     txtNombreCat.Text
                 );
 
+
+
             categoryRepo.Update(category);
+
 
             CleanTextBoxs();
             LoadCategoryCombo();
@@ -145,88 +150,78 @@ namespace TestingTrabajo
             LoadToolTable();
         }
 
-   
+
+
+
+
+
+        internal class FormatedTool
+        {
+            private int id;
+            private string name;
+            private string category;
+            private int stock;
+            private int realStock;
+
+            public FormatedTool(int id, string name, string category, int stock, int realStock)
+            {
+                this.id = id;
+                this.name = name;
+                this.category = category;
+                this.stock = stock;
+                this.realStock = realStock;
+            }
+
+
+
+            public int Id
+            {
+                get { return id; }
+                set { id = value; }
+            }
+
+            public string Name
+            {
+                get { return name; }
+                set { name = value; }
+            }
+
+            public string Category
+            {
+                get { return category; }
+                set { category = value; }
+            }
+
+            public int Stock
+            {
+                get { return stock; }
+                set { stock = value; }
+            }
+
+            public int RealStock
+            {
+                get { return realStock; }
+                set { realStock = value; }
+            }
+
+        }
+
+        private void cboCat_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            txtNombreCat.Text = cboCat.SelectedItem+"";
+
+        }
 
         private void b1SetColor(object DatagridCell, RoutedEventArgs e)
         {
-            MessageBox.Show("a");
+
+            string a = DatagridCell.ToString();
+            MessageBox.Show(a);
 
         }
 
-    }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    internal class FormatedTool
-    {
-        private int id;
-        private string name;
-        private string category;
-        private int stock;
-        private int realStock;
-
-        public FormatedTool(int id, string name, string category, int stock, int realStock)
-        {
-            this.id = id;
-            this.name = name;
-            this.category = category;
-            this.stock = stock;
-            this.realStock = realStock;
-        }
-
-
-
-        public int Id
-        {
-            get { return id; }
-            set { id = value; }
-        }
-
-        public string Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
-
-        public string Category
-        {
-            get { return category; }
-            set { category = value; }
-        }
-
-        public int Stock
-        {
-            get { return stock; }
-            set { stock = value; }
-        }
-
-        public int RealStock
-        {
-            get { return realStock; }
-            set { realStock = value; }
-        }
-
+      
     }
 }

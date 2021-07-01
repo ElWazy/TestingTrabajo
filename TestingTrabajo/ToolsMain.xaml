@@ -223,17 +223,16 @@
 
             <TextBlock Text="Categorías Y Herramientas"
                        FontSize="25" Margin="10,0,0,0"></TextBlock>
-
             <StackPanel Background="#f1f1f1"
                         Margin="15,10,15,0"
-                        Height="200" >
+                        Height="205" >
                 <TextBlock Text="CREAR / ACTUALIZAR CATEGORÍA" 
-                           Margin="10,5,0,0" FontWeight="Medium"></TextBlock>
+                           Margin="10,5,0,0" FontWeight="Medium"/>
 
-                <TextBlock Text="NOMBRE: " Margin="12,15,0,0" FontWeight="Light"></TextBlock>
+                <TextBlock Text="NOMBRE: " Margin="12,15,0,0" FontWeight="Light"/>
 
-                <TextBox x:Name="txtNombreCat" BorderThickness="0" Width="377" HorizontalAlignment="Left" Margin="12,5,0,0" Height="22"></TextBox>
-                <Border Height="5" Background="#464f9b" Width="377" HorizontalAlignment="Left" Margin="12,0,0,0"></Border>
+                <TextBox x:Name="txtNombreCat" BorderThickness="0" Width="377" HorizontalAlignment="Left" Margin="12,5,0,0" Height="22"/>
+                <Border Height="5" Background="#464f9b" Width="377" HorizontalAlignment="Left" Margin="12,0,0,0"/>
 
                 <Button x:Name="btnAddCat" Content="Crear" 
                         Foreground="Black" 
@@ -242,24 +241,20 @@
                         FontWeight="Medium" Margin="12,7,0,0" Click="btnAddCat_Click">
 
                     <Button.Style>
-                        <Style TargetType="Button">
+                        <Style TargetType="{x:Type Button}">
                             <Setter Property="TextElement.FontFamily" 
-                                    Value="Fonts/#Dosis">
-                            </Setter>
+                                    Value="Fonts/#Dosis"/>
 
                             <Setter Property="Background" 
-                                    Value="White">
-                            </Setter>
+                                    Value="White"/>
 
                             <Setter Property="Cursor" 
-                                    Value="Hand">
-                            </Setter>
+                                    Value="Hand"/>
 
                             <Style.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
                                     <Setter Property="Background"
-                                            Value="White">
-                                    </Setter>
+                                            Value="White"/>
                                 </Trigger>
                             </Style.Triggers>
 
@@ -267,14 +262,13 @@
                     </Button.Style>
 
                     <Button.Template>
-                        <ControlTemplate TargetType="Button">
+                        <ControlTemplate TargetType="{x:Type Button}">
                             <Border Width="100" Height="25"
                                     CornerRadius="12"
                                     Background="{TemplateBinding Background}">
 
                                 <ContentPresenter VerticalAlignment="Center"
-                                                  HorizontalAlignment="Center">
-                                </ContentPresenter>
+                                                  HorizontalAlignment="Center"/>
                             </Border>
                         </ControlTemplate>
                     </Button.Template>
@@ -321,8 +315,8 @@
 
                 </Button>
 
-                <ComboBox x:Name="cboCat" Margin="12,30,10,0" Width="377" Foreground="Black" Background="White" BorderBrush="White" />
-                <Border Height="5" Background="#464f9b" Width="377" HorizontalAlignment="Left" Margin="12,0,0,0"></Border>
+                <ComboBox x:Name="cboCat" Margin="12,30,10,0" Width="377" Foreground="Black" Background="White" BorderBrush="White" SelectionChanged="cboCat_SelectionChanged" />
+                <Border Height="5" Background="#464f9b" Width="377" HorizontalAlignment="Left" Margin="12,0,0,0"/>
 
             </StackPanel>
 
