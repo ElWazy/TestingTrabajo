@@ -342,7 +342,7 @@
 
                 <TextBlock Text="STOCK: " Margin="12,15,0,0" FontWeight="Light"></TextBlock>
 
-                <TextBox x:Name="txtStock" BorderThickness="0" Width="180" HorizontalAlignment="Left" Margin="12,5,0,0" Height="22"></TextBox>
+                <TextBox x:Name="txtStock" BorderThickness="0" Width="180" HorizontalAlignment="Left" Margin="12,5,0,0" Height="22" KeyDown="txtStock_KeyDown"></TextBox>
                 <Border Height="5" Background="#7d80f4" Width="180" HorizontalAlignment="Left" Margin="12,0,0,0"></Border>
 
                 <Button x:Name="btnAddTool" Content="Crear" 
@@ -432,7 +432,6 @@
                 </Button>
 
             </StackPanel>
-
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.RowSpan="2" Grid.Column="2" Margin="0,0,10,10">
@@ -463,7 +462,6 @@
                                             Value="Black"/>
                                 </Trigger>
                             </Style.Triggers>
-
                         </Style>
                     </Button.Style>
 
@@ -482,14 +480,11 @@
 
 
                 <DataGrid  Background="Transparent" BorderThickness="0" x:Name="gridTools" Margin="0,10,20,0" Foreground="#FF0C0000"  ColumnWidth="*" >
-
-
                     <DataGrid.CellStyle>
                         <Style TargetType="DataGridCell">
                             <EventSetter Event="PreviewMouseDown" Handler="b1SetColor"/>
                         </Style>
                     </DataGrid.CellStyle>
-                    
                     <DataGrid.Resources>
                         <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
                             <Setter Property="Height" Value="30" ></Setter>
@@ -498,11 +493,7 @@
                         </Style>
                     </DataGrid.Resources>
                 </DataGrid>
-
             </StackPanel>
         </StackPanel>
-
     </Grid>
-
-
 </Window>
