@@ -24,6 +24,7 @@ namespace TestingTrabajo.Persistence
          */
         public Employee Login(string email, string passwd)
         {
+            Employee employee = null;
             string sql = @"SELECT 
                             employee.uuid,
                             employee.rut,
@@ -36,32 +37,50 @@ namespace TestingTrabajo.Persistence
                             employee.profile_id_fk
                         FROM employee
                         INNER JOIN profile ON employee.profile_id_fk = profile.uuid
-                        WHERE employee.rut = @rut AND employee.passwd = @passwd AND profile.name = 'Pañolero'
+                        WHERE employee.email = @email AND employee.passwd = @passwd AND profile.name = 'Pañolero'
                         LIMIT 1";
 
-            connection.Open();
-
-            MySqlCommand command = new MySqlCommand(sql, connection);
-            command.Parameters.AddWithValue("@rut", email);
-            command.Parameters.AddWithValue("@passwd", passwd);
-            command.Prepare();
-
-            MySqlDataReader reader = command.ExecuteReader();
-
-            if (!reader.HasRows)
+            try
             {
-                return null;
+                connection.Open();
+
+                MySqlCommand command = new MySqlCommand(sql, connection);
+                command.Parameters.AddWithValue("@email", email);
+                command.Parameters.AddWithValue("@passwd", Employee.GeneratePassword(passwd));
+                command.Prepare();
+
+                MySqlDataReader reader = command.ExecuteReader();
+
+                if (!reader.HasRows)
+                {
+                    return null;
+                }
+
+                employee = new Employee(
+                    reader.GetString(0),
+                    reader.GetString(1),
+                    reader.GetString(2),
+                    reader.GetString(3),
+                    reader.GetString(4),
+                    reader.GetString(5),
+                    reader.GetString(6),
+                    reader.GetInt32(7),
+                    reader.GetString(8)
+                    );
+
+                return employee;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            } 
+            finally
+            {
+                connection.Close();
             }
 
-            return new Employee(reader.GetString(0),
-                            reader.GetString(1),
-                            reader.GetString(2),
-                            reader.GetString(3),
-                            reader.GetString(4),
-                            reader.GetString(5),
-                            reader.GetString(6),
-                            reader.GetInt32(7),
-                            reader.GetString(8));
+            return null;
+
         }
 
         public void Register(Employee employee)
@@ -92,6 +111,7 @@ namespace TestingTrabajo.Persistence
             command.Prepare();
 
             command.ExecuteNonQuery();
+            connection.Close();
         }
     }
 }

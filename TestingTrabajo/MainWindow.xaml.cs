@@ -1,18 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using TestingTrabajo.Models;
+using TestingTrabajo.Persistence;
 
 namespace TestingTrabajo
 {
@@ -21,10 +13,16 @@ namespace TestingTrabajo
     /// </summary>
     public partial class MainWindow : Window
     {
+        EmployeeRepository employeeRepo;
+        
         public MainWindow()
         {
             InitializeComponent();
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+
+            string url = "datasource=localhost;port=3306;username=root;password=;database=testing_work";
+
+            employeeRepo = new HarcodedEmployeeRepository();
         }
 
         private void ChangeWindow(object sender, MouseButtonEventArgs e)
@@ -46,20 +44,29 @@ namespace TestingTrabajo
 
         private void logInCorrect(object sender, RoutedEventArgs e)
         {
-
-
             ToolsMain tools = new ToolsMain();
+            String expresion = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+            bool validate;
 
             String email = txtMail.Text;
-            String expresion;
-            bool validate;
-            expresion = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
             if (Regex.IsMatch(email, expresion))
             {
                 if (Regex.Replace(email, expresion, String.Empty).Length == 0)
                 {
-                    tools.Show();
-                    this.Close();
+                    Employee employee = employeeRepo.Login(
+                            txtMail.Text,
+                            pswbox.Password
+                        );
+
+                    if (employee != null)
+                    {
+                        tools.Show();
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Usuario no se encuentra en la bd.");
+                    }
 
                 }  
                 else
@@ -75,9 +82,6 @@ namespace TestingTrabajo
                 validate = false;
                 Console.WriteLine(validate + " mail validator secondElse");
             }
-
-
-
 
         }
 
