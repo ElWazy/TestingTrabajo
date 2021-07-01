@@ -11,17 +11,17 @@ namespace TestingTrabajo.Models
 
         private string uuid;
         private string name;
-        private int category_id_fk;
+        private string category_id_fk;
         private int stock;
         private int real_stock;
 
-        public string Uuid { set => uuid = value; }
+        public string Uuid { get => uuid; set => uuid = value; }
         public string Name { get => name; set => name = value; }
-        public int Category_id_fk { get => category_id_fk; set => category_id_fk = value; }
-        public int Stock { set => stock = value; }
-        public int Real_stock { set => real_stock = value; }
+        public string Category_id_fk { get => category_id_fk; set => category_id_fk = value; }
+        public int Stock { get => stock; set => stock = value; }
+        public int Real_stock { get => real_stock; set => real_stock = value; }
 
-        public Tool(string uuid, string name, int category_id_fk, int stock, int real_stock)
+        public Tool(string uuid, string name, string category_id_fk, int stock, int real_stock)
         {
             this.uuid = ValidateUUID(uuid);
             this.name = name;
