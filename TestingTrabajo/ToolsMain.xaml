@@ -488,7 +488,7 @@
                     <DataGrid.Resources>
                         <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
                             <Setter Property="Height" Value="30" ></Setter>
-                            <Setter Property="Background" Value="#7d80f4" />
+                            <Setter Property="Background" Value="#7d80f6" />
                             <Setter Property="Foreground" Value="White" />
                         </Style>
                     </DataGrid.Resources>
