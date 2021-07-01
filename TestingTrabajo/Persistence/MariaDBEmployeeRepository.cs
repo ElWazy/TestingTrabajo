@@ -36,7 +36,7 @@ namespace TestingTrabajo.Persistence
                             employee.profile_id_fk
                         FROM employee
                         INNER JOIN profile ON employee.profile_id_fk = profile.uuid
-                        WHERE employee.rut = @rut AND employee.passwd = @passwd AND profile.name = 'panolero'
+                        WHERE employee.rut = @rut AND employee.passwd = @passwd AND profile.name = 'Pañolero'
                         LIMIT 1";
 
             connection.Open();

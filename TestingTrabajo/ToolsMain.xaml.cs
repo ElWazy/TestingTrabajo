@@ -77,12 +77,15 @@ namespace TestingTrabajo
 
         }
 
+        /**
+         * Comentar a la hora de la exposicion
+         */ 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            //UserRegister register = new UserRegister();
-            //register.Show();
+            UserRegister register = new UserRegister();
+            register.Show();
 
-            //this.Close();
+            this.Close();
         }
 
         private void btnAddCat_Click(object sender, RoutedEventArgs e)
