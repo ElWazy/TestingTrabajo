@@ -14,29 +14,91 @@ namespace TestingTrabajo.Persistence
             connection = new MySqlConnection(url);
         }
 
+        public string GetName()
+        {
+            return "MariaDB";
+        }
+        
         public List<Category> GetAll()
         {
-            throw new NotImplementedException();
+            string sql = @"SELECT uuid, name FROM category";
+
+            connection.Open();
+
+            List<Category> categories = new List<Category>();
+
+            MySqlCommand command = new MySqlCommand(sql, connection);
+            command.Prepare();
+
+            MySqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Category category = new Category(
+                    reader.GetString(0),
+                    reader.GetString(1)
+                    );
+                categories.Add(category);
+            }
+            connection.Close();
+
+            return categories;
         }
 
         public Category GetByName(string name)
         {
-            throw new NotImplementedException();
-        }
+            string sql = @"SELECT uuid, name FROM category WHERE name = @name";
 
-        public string GetName()
-        {
-            throw new NotImplementedException();
+            connection.Open();
+
+            Category category = null;
+
+            MySqlCommand command = new MySqlCommand(sql, connection);
+            command.Parameters.AddWithValue("@name", name);
+            command.Prepare();
+
+            MySqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                category = new Category(
+                    reader.GetString(0),
+                    reader.GetString(1)
+                    );
+            }
+            connection.Close();
+
+            return category;
         }
 
         public void Save(Category category)
         {
-            throw new NotImplementedException();
+            string sql = @"INSERT INTO profile VALUES (@uuid, @name)";
+
+            connection.Open();
+
+            MySqlCommand command = new MySqlCommand(sql, connection);
+            command.Parameters.AddWithValue("@uuid", category.UUID);
+            command.Parameters.AddWithValue("@name", category.Name);
+            command.Prepare();
+
+            command.ExecuteNonQuery();
+            connection.Close();
         }
 
         public void Update(Category category)
         {
-            throw new NotImplementedException();
+            string sql = @"UPDATE category SET name = @name WHERE uuid = @uuid";
+
+            connection.Open();
+
+            MySqlCommand command = new MySqlCommand(sql, connection);
+            command.Parameters.AddWithValue("@name", category.Name);
+            command.Parameters.AddWithValue("@uuid", category.UUID);
+            command.Prepare();
+
+            command.ExecuteNonQuery();
+            connection.Close();
         }
     }
 }
