@@ -78,12 +78,14 @@ namespace TestingTrabajo
                 {
                     validateMail = false;
                     Console.WriteLine(validateMail + " mail validator firstElse");
+                    MessageBox.Show("Correo Invalido !");
                 }
             }
             else
             {
                 validateMail = false;
                 Console.WriteLine(validateMail + " mail validator secondElse");
+                MessageBox.Show("Correo Invalido !");
             }
 
 

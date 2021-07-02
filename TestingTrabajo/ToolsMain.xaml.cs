@@ -7,9 +7,6 @@ using TestingTrabajo.Persistence;
 
 namespace TestingTrabajo
 {
-    /// <summary>
-    /// Lógica de interacción para ToolsMain.xaml
-    /// </summary>
     public partial class ToolsMain : Window
     {
         CategoryRepository categoryRepo;
@@ -163,7 +160,6 @@ namespace TestingTrabajo
             if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
             {
                 e.Handled = false;
-                MessageBox.Show("Solo valores numericos");
             }
                 
             else

@@ -326,7 +326,7 @@
         <StackPanel Grid.Row="2" Grid.Column="1">
 
             <StackPanel Background="#f1f1f1" Margin="15,10,15,0"
-                        Height="260" >
+                        Height="269" >
 
                 <TextBlock Text="CREAR / ACTUALIZAR HERRAMIENTA" 
                            Margin="10,5,0,0" FontWeight="Medium"></TextBlock>
@@ -349,7 +349,7 @@
                         Foreground="Black" 
                         FontSize="14"
                         HorizontalAlignment="Left"
-                        FontWeight="Medium" Margin="12,10,0,0" Click="btnAddTool_Click">
+                        FontWeight="Medium" Margin="12,20,0,0" Click="btnAddTool_Click">
 
                     <Button.Style>
                         <Style TargetType="Button">
@@ -394,7 +394,7 @@
                         Foreground="Black" 
                         FontSize="14"
                         HorizontalAlignment="Left"
-                        FontWeight="Medium" Margin="280,-25,0,0" >
+                        FontWeight="Medium" Margin="280,-25,0,0" Opacity="0">
 
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
